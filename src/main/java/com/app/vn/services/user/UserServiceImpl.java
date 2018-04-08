@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 
-import com.app.vn.common.model.AuthorizedUser;
 import com.app.vn.repository.user.UserRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +44,12 @@ public class UserServiceImpl extends SavedRequestAwareAuthenticationSuccessHandl
     @Override
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
-        /*User activeUserInfo = userRepository.findOneByLoginId(userName);
-        GrantedAuthority authority = new SimpleGrantedAuthority(activeUserInfo.getRoles());
+        User activeUserInfo = userRepository.findOneByLoginId(userName);
+        GrantedAuthority authority = new SimpleGrantedAuthority(activeUserInfo.getRole());
         UserDetails userDetails = (UserDetails)new org.springframework.security.core.userdetails.User(activeUserInfo.getLoginId(), activeUserInfo.getLoginPassword(), Arrays.asList(authority));
-        return userDetails;*/
+        return userDetails;
 
-        if (!StringUtils.hasText(userName)) {
+        /*if (!StringUtils.hasText(userName)) {
             throw new UsernameNotFoundException("Username is empty");
         }
 
@@ -64,10 +63,10 @@ public class UserServiceImpl extends SavedRequestAwareAuthenticationSuccessHandl
             throw new UsernameNotFoundException("User ID not existing. [" + userName + "]");
         }
 
-        return new AuthorizedUser(user);
+        return new AuthorizedUser(user);*/
     }
 
-    @Transactional(readOnly=false)
+    /*@Transactional(readOnly=false)
     @Override
     public void onAuthenticationSuccess(
             HttpServletRequest request,
@@ -77,7 +76,7 @@ public class UserServiceImpl extends SavedRequestAwareAuthenticationSuccessHandl
         userRepository.updateLastLoginTime(authorizedUser.getId(), new Date());
         logger.info("\"{}\" logged in. IP: [{}]", authorizedUser.toString(), request.getRemoteAddr());
         super.onAuthenticationSuccess(request, response, authentication);
-    }
+    }*/
 
     @Override
     @Transactional(readOnly=false)

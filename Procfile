@@ -1,1 +1,1 @@
-web: java -jar $JAVA_OPTS target/*.war --server.port=$PORT $JAR_OPTS
+web:    java -cp target/classes:target/dependency/* -Dserver.port=$PORT com/app/vn/Application

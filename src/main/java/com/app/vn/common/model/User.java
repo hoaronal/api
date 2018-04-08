@@ -12,16 +12,16 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@DynamicInsert
-@DynamicUpdate
+/*@DynamicInsert
+@DynamicUpdate*/
 public class User implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
+	@Column(name = "id")
 	private long id;
-
-	@Column(length = 100, nullable = false, unique = true)
+	@Column(name = "login_id" , length = 100, nullable = false, unique = true)
 	private String loginId;
-	@Column(length = 500, nullable = false)
+	@Column(name = "login_password", length = 500, nullable = false)
 	private String loginPassword;
 	@Column(length = 500, name = "name_first")
 	private String firstName;

@@ -6,14 +6,17 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
+
+@Entity
 @Table(name = "role")
-@DynamicInsert
-@DynamicUpdate
+/*@DynamicInsert
+@DynamicUpdate*/
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(name = "role",length = 20, nullable = false, unique = true)
     private String role;
 
     public Role() {
