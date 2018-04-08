@@ -1,7 +1,6 @@
 package com.app.vn.client;
 import java.net.URI;
 
-import com.app.vn.common.model.Article;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +18,7 @@ public class RestClientUtil {
         headers.add("Authorization", "Basic " + encodedCredential);
         return headers;
     }
-    public void getArticleByIdDemo() {
+    /*public void getArticleByIdDemo() {
         HttpHeaders headers = getHeaders();
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/user/article/{id}";
@@ -77,5 +76,5 @@ public class RestClientUtil {
         //util.addArticleDemo();
         util.updateArticleDemo();
         //util.deleteArticleDemo();
-    }
+    }*/
 }

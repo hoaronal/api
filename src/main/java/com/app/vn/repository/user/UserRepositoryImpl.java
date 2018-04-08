@@ -17,8 +17,8 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     public User getActiveUser(String userName) {
         User activeUserInfo = new User();
         short enabled = 1;
-        List<?> list = entityManager.createQuery("SELECT u FROM User u WHERE userName=? and enabled=?")
-                .setParameter(1, userName).setParameter(2, enabled).getResultList();
+        List<?> list = entityManager.createQuery("SELECT u FROM User u WHERE loginId=? ")
+                .setParameter(1, userName).getResultList();
         if(!list.isEmpty()) {
             activeUserInfo = (User)list.get(0);
         }
