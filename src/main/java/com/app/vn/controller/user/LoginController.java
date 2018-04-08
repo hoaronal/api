@@ -18,7 +18,7 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-    @GetMapping("login")
+    /*@GetMapping("login")
     public String getArticleById(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("app_username");
         String password = request.getParameter("app_password");
@@ -29,5 +29,5 @@ public class LoginController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void logout(HttpSession session) {
         session.invalidate();
-    }
+    }*/
 }
