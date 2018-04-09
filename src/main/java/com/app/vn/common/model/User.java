@@ -6,14 +6,12 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
-/*@DynamicInsert
-@DynamicUpdate*/
+@DynamicInsert
+@DynamicUpdate
 public class User implements Serializable {
 	@Id
 	@GeneratedValue
@@ -31,9 +29,6 @@ public class User implements Serializable {
 	private String nickname;
 	@Column(length = 500, name = "email", nullable = false, unique = true)
 	private String email;
-	@Lob
-	@Column(length = 500, name = "description")
-	private String description;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at", length=29)
 	private Date createdAt;
@@ -50,14 +45,13 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String loginId, String loginPassword, String firstName, String lastName, String nickname, String email, String description, Date createdAt, String createdBy, Date updatedAt, String updatedBy) {
+	public User(String loginId, String loginPassword, String firstName, String lastName, String nickname, String email, Date createdAt, String createdBy, Date updatedAt, String updatedBy) {
 		this.loginId = loginId;
 		this.loginPassword = loginPassword;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nickname = nickname;
 		this.email = email;
-		this.description = description;
 		this.createdAt = createdAt;
 		this.createdBy = createdBy;
 		this.updatedAt = updatedAt;
@@ -120,14 +114,6 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Date getCreatedAt() {
 		return this.createdAt;
 	}
@@ -180,7 +166,6 @@ public class User implements Serializable {
 				Objects.equals(lastName, user.lastName) &&
 				Objects.equals(nickname, user.nickname) &&
 				Objects.equals(email, user.email) &&
-				Objects.equals(description, user.description) &&
 				Objects.equals(createdAt, user.createdAt) &&
 				Objects.equals(createdBy, user.createdBy) &&
 				Objects.equals(updatedAt, user.updatedAt) &&
@@ -190,7 +175,7 @@ public class User implements Serializable {
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(id, loginId, loginPassword, firstName, lastName, nickname, email, description, createdAt, createdBy, updatedAt, updatedBy);
+		return Objects.hash(id, loginId, loginPassword, firstName, lastName, nickname, email, createdAt, createdBy, updatedAt, updatedBy);
 	}
 
 	@Override
@@ -203,7 +188,6 @@ public class User implements Serializable {
 				", lastName='" + lastName + '\'' +
 				", nickname='" + nickname + '\'' +
 				", email='" + email + '\'' +
-				", description='" + description + '\'' +
 				", createdAt=" + createdAt +
 				", createdBy='" + createdBy + '\'' +
 				", updatedAt=" + updatedAt +

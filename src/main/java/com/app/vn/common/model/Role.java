@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "role")
-/*@DynamicInsert
-@DynamicUpdate*/
+@DynamicInsert
+@DynamicUpdate
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,8 +1,7 @@
 package com.app.vn.controller.user;
 
 import com.app.vn.common.model.User;
-import com.app.vn.common.utils.PasswordUtil;
-import com.app.vn.services.user.UserService;
+import com.app.vn.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

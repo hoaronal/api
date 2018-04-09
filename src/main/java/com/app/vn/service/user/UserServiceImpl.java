@@ -1,29 +1,20 @@
-package com.app.vn.services.user;
+package com.app.vn.service.user;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-
+import com.app.vn.common.model.User;
 import com.app.vn.repository.user.UserRepository;
+import com.app.vn.repository.user.UserRepositoryCustom;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
-
-import com.app.vn.common.model.User;
-import com.app.vn.repository.user.UserRepositoryCustom;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
 
 
 @Service

@@ -1,17 +1,19 @@
-E:\New folder\api\src\main\java\com\app\vn\controller\user\LoginController.java
-E:\New folder\api\src\main\java\com\app\vn\controller\user\UserController.java
-E:\New folder\api\src\main\java\com\app\vn\config\SecurityConfig.java
-E:\New folder\api\src\main\java\com\app\vn\client\RestClientUtil.java
-E:\New folder\api\src\main\java\com\app\vn\repository\user\UserRepository.java
-E:\New folder\api\src\main\java\com\app\vn\repository\user\UserRepositoryCustom.java
-E:\New folder\api\src\main\java\com\app\vn\Application.java
-E:\New folder\api\src\main\java\com\app\vn\common\utils\PasswordUtil.java
-E:\New folder\api\src\main\java\com\app\vn\Main.java
-E:\New folder\api\src\main\java\com\app\vn\common\utils\CoreResponse.java
-E:\New folder\api\src\main\java\com\app\vn\common\support\MailObject.java
-E:\New folder\api\src\main\java\com\app\vn\services\user\UserService.java
-E:\New folder\api\src\main\java\com\app\vn\config\AppAuthenticationEntryPoint.java
-E:\New folder\api\src\main\java\com\app\vn\common\model\Role.java
-E:\New folder\api\src\main\java\com\app\vn\services\user\UserServiceImpl.java
-E:\New folder\api\src\main\java\com\app\vn\common\model\User.java
-E:\New folder\api\src\main\java\com\app\vn\repository\user\UserRepositoryImpl.java
+E:\NEWS\api\src\main\java\com\app\vn\common\model\User.java
+E:\NEWS\api\src\main\java\com\app\vn\common\model\AuthorizedUser.java
+E:\NEWS\api\src\main\java\com\app\vn\Main.java
+E:\NEWS\api\src\main\java\com\app\vn\repository\user\UserRepository.java
+E:\NEWS\api\src\main\java\com\app\vn\common\utils\PasswordUtil.java
+E:\NEWS\api\src\main\java\com\app\vn\services\user\UserServiceImpl.java
+E:\NEWS\api\src\main\java\com\app\vn\common\utils\CoreResponse.java
+E:\NEWS\api\src\main\java\com\app\vn\Application.java
+E:\NEWS\api\src\main\java\com\app\vn\repository\user\UserRepositoryImpl.java
+E:\NEWS\api\src\main\java\com\app\vn\services\user\UserService.java
+E:\NEWS\api\src\main\java\com\app\vn\common\model\PasswordResetToken.java
+E:\NEWS\api\src\main\java\com\app\vn\controller\user\LoginController.java
+E:\NEWS\api\src\main\java\com\app\vn\client\RestClientUtil.java
+E:\NEWS\api\src\main\java\com\app\vn\common\model\Role.java
+E:\NEWS\api\src\main\java\com\app\vn\config\AppAuthenticationEntryPoint.java
+E:\NEWS\api\src\main\java\com\app\vn\controller\user\UserController.java
+E:\NEWS\api\src\main\java\com\app\vn\repository\user\UserRepositoryCustom.java
+E:\NEWS\api\src\main\java\com\app\vn\common\support\MailObject.java
+E:\NEWS\api\src\main\java\com\app\vn\config\SecurityConfig.java

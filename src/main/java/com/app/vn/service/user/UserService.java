@@ -1,4 +1,4 @@
-package com.app.vn.services.user;
+package com.app.vn.service.user;
 
 import com.app.vn.common.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
