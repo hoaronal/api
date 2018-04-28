@@ -26,6 +26,14 @@ public class CoreResponse implements Serializable {
 	public CoreResponse() {
 	}
 
+
+	public CoreResponse(boolean isSuccess, Object result, String messageCode, Integer responseCode) {
+		this.isSuccess = isSuccess;
+		this.result = result;
+		this.messageCode = messageCode;
+		this.responseCode = responseCode;
+	}
+
 	public CoreResponse(Collection<?> result) {
 		this.result = result;
 		if (result != null) {

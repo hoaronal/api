@@ -17,12 +17,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AppAuthenticationEntryPoint appAuthenticationEntryPoint;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http.csrf().disable()
+        http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/private/**").hasAnyRole("ADMIN","USER")
                 .and().httpBasic().realmName("MY APP REALM")
-                .authenticationEntryPoint(appAuthenticationEntryPoint);*/
+                .authenticationEntryPoint(appAuthenticationEntryPoint);
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

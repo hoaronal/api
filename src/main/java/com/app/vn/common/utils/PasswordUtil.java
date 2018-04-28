@@ -6,6 +6,6 @@ public class PasswordUtil {
 
     public static String genarate(String pass){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder.encode("m123");
+        return encoder.encode(pass);
     }
 }

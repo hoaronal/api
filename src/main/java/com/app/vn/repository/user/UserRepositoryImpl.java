@@ -14,11 +14,11 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private EntityManager entityManager;
 
     @Override
-    public User getActiveUser(String userName) {
+    public User getActiveUser(String loginId) {
         User activeUserInfo = new User();
         short enabled = 1;
-        List<?> list = entityManager.createQuery("SELECT u FROM User u WHERE loginId=? ")
-                .setParameter(1, userName).getResultList();
+        List<?> list = entityManager.createQuery("SELECT u FROM User u WHERE loginId = :loginId")
+                .setParameter("loginId", loginId).getResultList();
         if(!list.isEmpty()) {
             activeUserInfo = (User)list.get(0);
         }

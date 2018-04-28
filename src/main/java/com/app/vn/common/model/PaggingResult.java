@@ -11,11 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Named
 public class PaggingResult {
     private long firstPage;
@@ -23,4 +18,44 @@ public class PaggingResult {
     private long totalPage;
     private long totalItem;
     private List itemList;
+
+    public long getFirstPage() {
+        return firstPage;
+    }
+
+    public void setFirstPage(long firstPage) {
+        this.firstPage = firstPage;
+    }
+
+    public long getLastPage() {
+        return lastPage;
+    }
+
+    public void setLastPage(long lastPage) {
+        this.lastPage = lastPage;
+    }
+
+    public long getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(long totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public long getTotalItem() {
+        return totalItem;
+    }
+
+    public void setTotalItem(long totalItem) {
+        this.totalItem = totalItem;
+    }
+
+    public List getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List itemList) {
+        this.itemList = itemList;
+    }
 }

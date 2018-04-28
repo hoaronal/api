@@ -1,6 +1,7 @@
 package com.app.vn.repository.user;
 
 import com.app.vn.common.model.User;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,11 +15,12 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<User,Long>, JpaSpecificationExecutor<User> {
 
     User findOneById(Long id);
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    User findOneByLoginId(String loginId);
+    @Query("SELECT u FROM User u WHERE loginId = :loginId ")
+    User findOneByLoginId(@Param("loginId") String loginId);
     User findOneByEmail(String email);
     List<User> findAllByIdIn(Collection<Long> ids);
     User findOneForUpdateById(Long id);
