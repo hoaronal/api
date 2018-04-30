@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "users")
 @DynamicInsert
 @DynamicUpdate
-public class User implements Serializable {
+public class User extends DomainObject<Long> implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -32,7 +32,8 @@ public class User implements Serializable {
     private String role;
     @Column(name = "description")
     private String description;
-    @Temporal(TemporalType.TIMESTAMP)
+
+    /*@Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_at", length=29)
     private Date createdAt;
     @Column(name="created_by", length=100)
@@ -41,12 +42,12 @@ public class User implements Serializable {
     @Column(name="updated_at", length=29)
     private Date updatedAt;
     @Column(name="updated_by", length=100)
-    private String updatedBy;
+    private String updatedBy;*/
 
     public User() {
     }
 
-    public User(String loginId, String loginPassword, String firstName, String lastName, String nickname, String email, String role, String description, Date createdAt, String createdBy, Date updatedAt, String updatedBy) {
+    public User(String loginId, String loginPassword, String firstName, String lastName, String nickname, String email, String role, String description) {
         this.loginId = loginId;
         this.loginPassword = loginPassword;
         this.firstName = firstName;
@@ -55,10 +56,6 @@ public class User implements Serializable {
         this.email = email;
         this.role = role;
         this.description = description;
-        this.createdAt = createdAt;
-        this.createdBy = createdBy;
-        this.updatedAt = updatedAt;
-        this.updatedBy = updatedBy;
     }
 
     public long getId() {
@@ -131,37 +128,5 @@ public class User implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 }
