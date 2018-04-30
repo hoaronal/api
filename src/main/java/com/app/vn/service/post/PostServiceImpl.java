@@ -35,6 +35,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public Post getById(long id) {
+        return postRepository.findById(id).get();
+    }
+
+    @Override
     public Page<Post> getPosts(int pageNumber, int pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize);
         Specification<Post> specification = new Specification<Post>() {

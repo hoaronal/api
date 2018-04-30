@@ -7,5 +7,7 @@ public interface PostService {
 
     public Post add(Post post);
 
+    public Post getById(long id);
+
     public Page<Post> getPosts(int pageNumber, int pageSize);
 }

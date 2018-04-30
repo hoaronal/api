@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.inject.Inject;
+import java.util.Arrays;
 
 @Controller
 @RequestMapping("private")
@@ -44,10 +45,24 @@ public class PostController {
     })
     public ResponseEntity<PaggingResult> get(@RequestParam(required = false,defaultValue = "1") int pageNumber,
                                              @RequestParam(required = false,defaultValue = "50") int pageSize){
-        Page<Post> users = postService.getPosts(pageNumber,pageSize);
-        result.setTotalItem(users.getTotalElements());
-        result.setTotalPage(users.getTotalPages());
-        result.setItemList(users.getContent());
+        Page<Post> posts = postService.getPosts(pageNumber,pageSize);
+        result.setTotalItem(posts.getTotalElements());
+        result.setTotalPage(posts.getTotalPages());
+        result.setItemList(posts.getContent());
         return new ResponseEntity<PaggingResult>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("post/get-detail")
+    @ApiOperation(
+            value = "Danh sách người dùng(Có phân trang)",
+            notes = "Dùng cho chức năng lấy danh sách người dùng."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Lấy dữ liệu thành công."),
+            @ApiResponse(code = 400, message = "Có lỗi xảy ra khi lấy dữ liệu người dùng!")
+    })
+    public ResponseEntity<Post> getDetail(@RequestParam long id){
+        Post post = postService.getById(id);
+        return new ResponseEntity<Post>(post, HttpStatus.OK);
     }
 }
