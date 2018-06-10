@@ -53,4 +53,9 @@ public class PostServiceImpl implements PostService {
         };
         return postRepository.findAll(specification, pageRequest);
     }
+
+    @Override
+    public Post getByCode(String code) {
+        return postRepository.findOneByCode(code);
+    }
 }

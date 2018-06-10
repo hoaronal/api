@@ -9,5 +9,7 @@ public interface PostService {
 
     public Post getById(long id);
 
+    public Post getByCode(String code);
+
     public Page<Post> getPosts(int pageNumber, int pageSize);
 }

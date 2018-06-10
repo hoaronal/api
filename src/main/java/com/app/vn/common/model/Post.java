@@ -1,19 +1,4 @@
 package com.app.vn.common.model;
-/*
- * Copyright 2014 Tagbangers, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 import org.hibernate.annotations.*;
 import org.hibernate.search.annotations.*;
@@ -86,10 +71,13 @@ public class Post extends DomainObject<Long>  {
     @Column(name = "seo_keywords")
     private String seoKeywords;
 
+    @Transient
+    private String imageLink = "https://image.ibb.co/eO8oq8/default_1.png";
+
     @Column(name = "views")
     private long views;
 
-    public Post(String code, String language, String status, LocalDateTime date, String title, String body, Media cover, User author, Post drafted, String draftedCode, String seoTitle, String seoDescription, String seoKeywords, long views) {
+    public Post(String code, String language, String status, LocalDateTime date, String title, String body, Media cover, User author, Post drafted, String draftedCode, String seoTitle, String seoDescription, String seoKeywords,String imageLink, long views) {
         this.code = code;
         this.language = language;
         this.status = status;
@@ -103,6 +91,7 @@ public class Post extends DomainObject<Long>  {
         this.seoTitle = seoTitle;
         this.seoDescription = seoDescription;
         this.seoKeywords = seoKeywords;
+        this.imageLink = imageLink;
         this.views = views;
     }
 
@@ -219,6 +208,14 @@ public class Post extends DomainObject<Long>  {
 
     public void setSeoKeywords(String seoKeywords) {
         this.seoKeywords = seoKeywords;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
     public long getViews() {

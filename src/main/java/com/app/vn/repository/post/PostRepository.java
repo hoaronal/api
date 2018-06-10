@@ -39,6 +39,8 @@ public interface PostRepository extends CrudRepository<Post, Long>, PostReposito
 	@EntityGraph(value = Post.DEEP_GRAPH_NAME, type = EntityGraph.EntityGraphType.FETCH)
 	Post findOneByCodeAndLanguage(String code, String language);
 
+	Post findOneByCode(String code);
+
 	@EntityGraph(value = Post.SHALLOW_GRAPH_NAME, type = EntityGraph.EntityGraphType.FETCH)
 	List<Post> findAllByStatusAndDateLessThanEqual(Post.Status status, LocalDateTime date);
 

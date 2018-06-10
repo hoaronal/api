@@ -54,15 +54,29 @@ public class PostController {
 
     @GetMapping("post/get-detail")
     @ApiOperation(
-            value = "Danh sách người dùng(Có phân trang)",
-            notes = "Dùng cho chức năng lấy danh sách người dùng."
+            value = "Lấy bài viết theo id",
+            notes = "Dùng cho chức năng lấy nội dung bài viết."
     )
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Lấy dữ liệu thành công."),
-            @ApiResponse(code = 400, message = "Có lỗi xảy ra khi lấy dữ liệu người dùng!")
+            @ApiResponse(code = 400, message = "Có lỗi xảy ra khi lấy nội dung bài viết!")
     })
     public ResponseEntity<Post> getDetail(@RequestParam long id){
         Post post = postService.getById(id);
+        return new ResponseEntity<Post>(post, HttpStatus.OK);
+    }
+
+    @GetMapping("post/get-detail-by-code")
+    @ApiOperation(
+            value = "Lấy bài viết theo code",
+            notes = "Dùng cho chức năng lấy nội dung bài viết."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Lấy dữ liệu thành công."),
+            @ApiResponse(code = 400, message = "Có lỗi xảy ra khi lấy nội dung bài viết!")
+    })
+    public ResponseEntity<Post> getDetailByCode(@RequestParam String code){
+        Post post = postService.getByCode(code);
         return new ResponseEntity<Post>(post, HttpStatus.OK);
     }
 }
