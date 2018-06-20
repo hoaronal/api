@@ -46,6 +46,8 @@ public class PostController {
     public ResponseEntity<PaggingResult> get(@RequestParam(required = false,defaultValue = "1") int pageNumber,
                                              @RequestParam(required = false,defaultValue = "50") int pageSize){
         Page<Post> posts = postService.getPosts(pageNumber,pageSize);
+        result.setFirstPage(1);
+        result.setLastPage((posts.getTotalElements()/10)+1);
         result.setTotalItem(posts.getTotalElements());
         result.setTotalPage(posts.getTotalPages());
         result.setItemList(posts.getContent());
